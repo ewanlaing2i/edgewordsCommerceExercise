@@ -5,13 +5,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class homePOM {
+public class HomePOM extends BasePOM{
 
 
 
     WebDriver driver;
 
-    public homePOM(WebDriver driver){
+    public HomePOM(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
@@ -19,8 +19,7 @@ public class homePOM {
     @FindBy(linkText = "Shop")
     WebElement shopLink;
 
-    @FindBy(className = "woocommerce-store-notice__dismiss-link")
-    WebElement dismissLink;
+
 
 
 
@@ -30,9 +29,6 @@ public class homePOM {
         shopLink.click();
     }
 
-    public void dismissWarning(){
-        dismissLink.click();
-    }
 
 
 

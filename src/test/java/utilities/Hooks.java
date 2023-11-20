@@ -2,18 +2,16 @@ package utilities;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import org.example.sharedDictionary;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import org.example.SharedDictionary;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class testBase {
+public class Hooks {
 
     private WebDriver driver;
-    private final sharedDictionary sharedDictionary;
+    private final SharedDictionary sharedDictionary;
 
-    public testBase(sharedDictionary sharedDictionary){
+    public Hooks(SharedDictionary sharedDictionary){
         this.sharedDictionary = sharedDictionary;
     }
 

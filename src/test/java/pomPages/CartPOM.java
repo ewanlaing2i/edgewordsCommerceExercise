@@ -1,5 +1,6 @@
 package pomPages;
 
+import org.example.Helpers;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,13 +11,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.math.BigDecimal;
 import java.time.Duration;
 
-public class cartPOM {
 
+public class CartPOM {
 
 
     WebDriver driver;
 
-    public cartPOM(WebDriver driver){
+    public CartPOM(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
@@ -49,19 +50,17 @@ public class cartPOM {
         wait.until(ExpectedConditions.visibilityOf(subTotal));
         String subtotalText = subTotal.getText();
         String totalWithoutCurrencySymbol = subtotalText.replace("£", "");
-//        Integer totalInPenniesAsInt = Integer.parseInt(totalWithoutCurrencySymbol.replace(".", ""));
         BigDecimal totalAsBD = BigDecimal.valueOf(Double.parseDouble(totalWithoutCurrencySymbol));
         BigDecimal shippingValue = BigDecimal.valueOf(3.95);
-
         BigDecimal currentValue = totalAsBD.subtract(shippingValue);
         System.out.println("The current basket item value is " + currentValue);
         return currentValue;
 
     }
 
-    public void applyCoupon(){
+    public void applyCoupon(String couponCode){
         couponTextBox.click();
-        couponTextBox.sendKeys("edgewords");
+        couponTextBox.sendKeys(couponCode);
         couponButton.click();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         wait.until(ExpectedConditions.visibilityOf(couponApplied));

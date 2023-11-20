@@ -69,7 +69,7 @@
         <dependency> <!-- Webdriver API -->
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>4.14.1</version>
+            <version>4.15.0</version>
             <scope>test</scope>
         </dependency>
 

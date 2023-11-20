@@ -9,13 +9,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class orderReceivedPOM {
+public class OrderReceivedPOM {
 
 
 
     WebDriver driver;
 
-    public orderReceivedPOM(WebDriver driver){
+    public OrderReceivedPOM(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }

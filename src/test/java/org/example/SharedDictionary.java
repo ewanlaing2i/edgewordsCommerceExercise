@@ -3,7 +3,7 @@ package org.example;
 import java.util.HashMap;
 import java.util.Map;
 
-public class sharedDictionary {
+public class SharedDictionary {
     private final Map<String, Object> sharedMap = new HashMap<String, Object>();
 
     public void addToDictionary(String key, Object value){

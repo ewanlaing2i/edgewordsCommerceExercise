@@ -9,42 +9,41 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class accountPOM {
+public class ShopPOM {
 
 
 
     WebDriver driver;
 
-    public accountPOM(WebDriver driver){
+    public ShopPOM(WebDriver driver){
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(linkText = "Logout")
-    WebElement logoutLink;
+//    @FindBy(xpath = "//main[@id='main']/ul//a[@href='?add-to-cart=27']")
+    @FindBy(css = "[aria-label*='Beanie']")
+    WebElement addBeanie;
 
-    @FindBy(linkText = "Orders")
-    WebElement ordersLink;
+    @FindBy(className = "cart-contents")
+    WebElement cartLink;
+
+    @FindBy(className = "added_to_cart")
+    WebElement cartConfirmation;
 
 
 
 
+    public void addBeanieToCart(){
 
-    public void logout(){
-
+        addBeanie.click();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-        wait.until(ExpectedConditions.elementToBeClickable(logoutLink));
-        logoutLink.click();
+        wait.until(ExpectedConditions.elementToBeClickable(cartConfirmation));
     }
 
-    public void goToOrders(){
+    public void viewCart(){
+        cartLink.click();
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-        wait.until(ExpectedConditions.elementToBeClickable(logoutLink));
-        ordersLink.click();
     }
-
-
 
 
 
